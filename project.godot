@@ -14,3 +14,7 @@ config/name="WildJam73"
 run/main_scene="res://prototype.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://cem8ubg730ttg"]
+[gd_scene load_steps=6 format=4 uid="uid://cem8ubg730ttg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t3lo"]
 resource_name = "Pan"
@@ -70,9 +70,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yh50q")
 
-[node name="pan" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6yinc"]
+height = 0.4
+radius = 1.2
+
+[node name="pan" type="CharacterBody3D"]
 
 [node name="Pan" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.0894427, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_roptc")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.197132, -0.0126439)
+shape = SubResource("CylinderShape3D_6yinc")

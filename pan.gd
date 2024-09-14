@@ -14,4 +14,7 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 #	make the pan follow the mouse
+	if event.is_action("ui_up"):
+		self.position.y += 0.2
+		
 	pass

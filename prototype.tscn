@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b1mt1lj3j0qw3"]
 
 [ext_resource type="PackedScene" uid="uid://cem8ubg730ttg" path="res://pan.tscn" id="1_q0qaa"]
-[ext_resource type="PackedScene" uid="uid://dixtu7w3agb7b" path="res://pancake.tscn" id="2_2lmoc"]
+[ext_resource type="PackedScene" uid="uid://bcmd3gglrba68" path="res://pancake.tscn" id="2_2lmoc"]
 [ext_resource type="Script" path="res://pan.gd" id="2_iu7xu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lm1sa"]
@@ -30,7 +30,8 @@ environment = SubResource("Environment_x2ho6")
 transform = Transform3D(1, 0, 0, 0, 0.747729, 0.664005, 0, -0.664005, 0.747729, 0, 2.84907, 2.71904)
 
 [node name="pan" parent="." instance=ExtResource("1_q0qaa")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 script = ExtResource("2_iu7xu")
 
 [node name="pancake" parent="." instance=ExtResource("2_2lmoc")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88116, 0)
