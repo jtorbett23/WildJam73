@@ -14,7 +14,9 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 #	make the pan follow the mouse
-	if event.is_action("ui_up"):
-		self.position.y += 0.2
+	if event.is_action_released("ui_up"):
+		self.rotation.x = lerp(self.rotation.x, self.rotation.x - deg_to_rad(45), 1)
+	elif event.is_action_released("ui_down"):
+		self.rotation.x = lerp(self.rotation.x, self.rotation.x + deg_to_rad(45), 1)
 		
 	pass
