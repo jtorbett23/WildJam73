@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bcmd3gglrba68"]
+[gd_scene load_steps=6 format=4 uid="uid://bcmd3gglrba68"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ik6m7"]
 resource_name = "Pancake"
@@ -40,16 +40,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_husxq")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hyna"]
+albedo_color = Color(0.533333, 0.470588, 0.764706, 1)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xab5h"]
-height = 0.2
+height = 0.06
 radius = 0.8
 
 [node name="pancake" type="RigidBody3D"]
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0720082, 0)
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 1, 0, 0.0720082, 0)
 mesh = SubResource("ArrayMesh_r2vmc")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_2hyna")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.081107, 0)
