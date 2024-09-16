@@ -13,7 +13,7 @@ func lock_axes(state: bool):
 	self.set_axis_lock(1, state)
 	self.set_axis_lock(4,state)
 
-var pan_offset = 0.5
+var pan_offset = 0.1
 
 func _physics_process(delta):
 
