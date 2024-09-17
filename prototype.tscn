@@ -29,14 +29,20 @@ environment = SubResource("Environment_x2ho6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.738738, 0.673993, 0, -0.673993, 0.738738, 0, 4.46235, 2.71904)
+current = true
 
 [node name="pan" parent="." instance=ExtResource("1_q0qaa")]
 script = ExtResource("2_iu7xu")
 
-[node name="pancake" parent="." instance=ExtResource("2_2lmoc")]
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="pancake" parent="Node3D" instance=ExtResource("2_2lmoc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88116, 0)
 continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 1
 constant_force = Vector3(0.01, 0, 0.01)
 script = ExtResource("4_u0gua")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
