@@ -38,9 +38,16 @@ func _physics_process(delta):
 		
 	if(self.position.y < -5 or get_parent().position.y <= -5):
 		# self.position = inital_pos
-		get_parent().position = Vector3.ZERO
+
+		# despawn
+		camera.clear_current()
+		queue_free()
+
+		# reset pos
+		# get_parent().position = Vector3.ZERO
 
 func handle_body_entered(col):
+	# if(col.get_script() != get_script()):
 	print("entered")
 	on_pan = true
 	lock_axes(false)
@@ -48,8 +55,9 @@ func handle_body_entered(col):
 	pass
 
 func handle_body_exited(col):
-	print("exited")
-	on_pan = false
-	camera.make_current()
-	# lock_axes(true)
-	pass
+	if(col.get_script() != get_script()):
+		print("exited")
+		on_pan = false
+		camera.make_current()
+		# lock_axes(true)
+		pass

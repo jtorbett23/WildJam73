@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1mt1lj3j0qw3"]
+[gd_scene load_steps=9 format=3 uid="uid://b1mt1lj3j0qw3"]
 
 [ext_resource type="PackedScene" uid="uid://cem8ubg730ttg" path="res://pan.tscn" id="1_q0qaa"]
-[ext_resource type="PackedScene" uid="uid://bcmd3gglrba68" path="res://pancake.tscn" id="2_2lmoc"]
 [ext_resource type="Script" path="res://pan.gd" id="2_iu7xu"]
-[ext_resource type="Script" path="res://pancake.gd" id="4_u0gua"]
+[ext_resource type="PackedScene" uid="uid://dqp63ylj4is8p" path="res://pancake2.tscn" id="3_n4pmq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lm1sa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,18 +39,7 @@ current = true
 [node name="pan" parent="." instance=ExtResource("1_q0qaa")]
 script = ExtResource("2_iu7xu")
 
-[node name="Node3D" type="Node3D" parent="."]
-
-[node name="pancake" parent="Node3D" instance=ExtResource("2_2lmoc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88116, 0)
-continuous_cd = true
-contact_monitor = true
-max_contacts_reported = 1
-constant_force = Vector3(0.01, 0, 0.01)
-script = ExtResource("4_u0gua")
-
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8, 0)
+[node name="Node3D" parent="." instance=ExtResource("3_n4pmq")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
