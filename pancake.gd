@@ -15,6 +15,7 @@ func lock_axes(state: bool):
 	self.set_axis_lock(4,state)
 
 var pan_offset = 0.1
+var speed = 10
 
 func _physics_process(delta):
 	
@@ -24,6 +25,14 @@ func _physics_process(delta):
 	else:
 		get_parent().position += (position - inital_pos)
 		self.position = inital_pos
+		if Input.is_action_pressed("ui_up"):
+			self.position.z -= speed * delta
+		elif Input.is_action_pressed("ui_down"):
+			self.position.z += speed * delta
+		elif Input.is_action_pressed("ui_right"):
+			self.position.x += speed * delta
+		elif Input.is_action_pressed("ui_left"):
+			self.position.x -= speed * delta
 
 
 		
@@ -42,5 +51,5 @@ func handle_body_exited(col):
 	print("exited")
 	on_pan = false
 	camera.make_current()
-	lock_axes(true)
+	# lock_axes(true)
 	pass
