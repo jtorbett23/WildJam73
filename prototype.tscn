@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cem8ubg730ttg" path="res://pan.tscn" id="1_q0qaa"]
 [ext_resource type="Script" path="res://pan.gd" id="2_iu7xu"]
-[ext_resource type="PackedScene" uid="uid://dqp63ylj4is8p" path="res://pancake2.tscn" id="3_n4pmq"]
+[ext_resource type="PackedScene" uid="uid://dqp63ylj4is8p" path="res://pancake.tscn" id="3_n4pmq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lm1sa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -35,6 +35,10 @@ environment = SubResource("Environment_x2ho6")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.738738, 0.673993, 0, -0.673993, 0.738738, 0, 4.46235, 2.71904)
 current = true
+
+[node name="Label3D" type="Label3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0890455, 0.0951151, -1.44151)
+text = "1"
 
 [node name="pan" parent="." instance=ExtResource("1_q0qaa")]
 script = ExtResource("2_iu7xu")
