@@ -33,15 +33,18 @@ environment = SubResource("Environment_pdb4u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.724634, 0.647165, 3.70193)
 
 [node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20737, 2.29843, 0)
 script = ExtResource("2_gckf7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.1289, 2.78181, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_v3hny")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.1289, 2.78181, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ki7gx")
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14076, 3.81059, -1.04549)
+[node name="Neck" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.805815, -0.187073)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Neck"]
