@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://dqp63ylj4is8p"]
 
-[ext_resource type="Script" path="res://pancake.gd" id="2_2ju11"]
+[ext_resource type="Script" path="res://model-scenes/pancake.gd" id="2_2ju11"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ik6m7"]
 resource_name = "Pancake"

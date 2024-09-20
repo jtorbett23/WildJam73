@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://hma6mchkgpn3"
-path="res://.godot/imported/pan.glb-6fc68ff703c3e878b481f87dec67c4cb.scn"
+path="res://.godot/imported/pan.glb-e920c001bae2c8e34ba3ce2c1a8ed4de.scn"
 
 [deps]
 
-source_file="res://pan.glb"
-dest_files=["res://.godot/imported/pan.glb-6fc68ff703c3e878b481f87dec67c4cb.scn"]
+source_file="res://assets/models/pan.glb"
+dest_files=["res://.godot/imported/pan.glb-e920c001bae2c8e34ba3ce2c1a8ed4de.scn"]
 
 [params]
 
@@ -31,6 +31,12 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

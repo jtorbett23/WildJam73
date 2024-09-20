@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=4 uid="uid://cxwuoayobuitg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ggiys"]
+resource_name = "Metal"
+cull_mode = 2
+albedo_color = Color(0.704535, 0.704535, 0.704535, 1)
+metallic = 0.582677
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4srnw"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AAAJAAgAAAACAAkAAgAKAAkAAgAGAAoABgALAAoABgAEAAsABAAIAAsABAAAAAgAAgAEAAYAAgAAAAQAAQAJAAMAAQAIAAkAAwAKAAcAAwAJAAoABwALAAUABwAKAAsABQAIAAEABQALAAgA"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAP//AACsHv//UuEAAAAAAAAAAAAArB7//6weAAD//wAA//8AAFLh//9S4QAA//8AAAAAAABS4f//rB4AAAAA/////wAAAAD//wAAAAD/////AAAAAP///////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ri37o"]
+resource_name = "foodtruck_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/18AAP8f/z//X///U9iqR/9f/7//H/9//1//v1PYVHj/X/8//1//P/9f/z+qp6pH/1//f/9f/3//X/9/qqdUeP+fAAD/3/8//5////+f/7//3/9//5//v/+f/3//n/9//5//f/+f/z//n/8//5//Pw=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("AgAVABIAAgAGABUABAAWABMABAAMABYADgAbABgADgAKABsACAAQABkACAAAABAABQAJAA0ABQABAAkAAwAUAAcAAwARABQABwAXAA8ABwAUABcADwAaAAsADwAXABoACwARAAMACwAaABEA"),
+"material": SubResource("StandardMaterial3D_ggiys"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAA////vwAAAAD//1TVrB7//1Lh//8AAAAAAAD//wAAAAAAAP+/AAAAAAAAVNWsHv//rB7/////AAD///+///8AAP///7///wAA//9U1VLh//9S4f////8AAAAA/////wAAAAD/v///AAAAAFTVUuH//6we//8AAP//////vwAA////////AAD/////VNUAAP//AAD//wAA//8AAP//AAD//wAAVNX/////AAD///////8AAP///////wAAVNX/////////v///////////////////VNX/////AAD/f1TVVNX/f/+//7//vwAA/39U1VTV/3//v/////8AAP9/qiqqKv9//7//v/+/AAD/f6oqqir/f/+///////9//79U1VTV/7//v/9//79U1VTV/7//v/9//7+qKqoq//////9//7+qKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4srnw")
+
+[node name="Bin" type="Node3D"]
+
+[node name="Bin" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.81, 0, 0, 0, 1, 0, 0, 0, 0.9, 0, 0.864284, 0)
+mesh = SubResource("ArrayMesh_ri37o")
+skeleton = NodePath("")
