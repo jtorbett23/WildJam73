@@ -38,6 +38,13 @@ right={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Walls"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Pan"
+3d_physics/layer_4="Pancake"
+
 [physics]
 
 3d/physics_engine="JoltPhysics3D"

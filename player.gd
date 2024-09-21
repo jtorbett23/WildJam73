@@ -42,6 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					collider.position = Vector3.ZERO - collider.get_node("GrabPoint").position
 					collider.rotation = Vector3.ZERO 
 					left_hand.add_child(collider)
+#					IF SCAN TO PHYSICS ON PAN, MOVE THIS CODE??? did not work cri
 		#elif event.button_mask == MOUSE_BUTTON_RIGHT:
 			#var collider = get_click_collisions()
 			#if collider:

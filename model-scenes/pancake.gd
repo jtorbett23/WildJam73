@@ -2,7 +2,7 @@ extends RigidBody3D
 
 var inital_pos : Vector3 = self.position
 var on_pan : bool = false
-@onready var pan : Pan = $"../../pan"
+@onready var pan = $"../../pan"
 @onready var camera : Camera3D = $"../Camera3D"
 
 func _ready():

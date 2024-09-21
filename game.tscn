@@ -69,3 +69,4 @@ skeleton = NodePath("../Right")
 [node name="pan" parent="." instance=ExtResource("3_tll2t")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.84254, 2.07632, -1.276)
 collision_layer = 4
+collision_mask = 9
