@@ -76,9 +76,7 @@ mesh = SubResource("SphereMesh_t1h14")
 skeleton = NodePath("../Right")
 
 [node name="pan" parent="." instance=ExtResource("3_tll2t")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.84254, 2.07632, -1.276)
-collision_layer = 4
-collision_mask = 9
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.843, 2, -1.276)
 
 [node name="Pump-Ube" parent="." instance=ExtResource("4_ca7ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15083, 3.57111, -9.03861)

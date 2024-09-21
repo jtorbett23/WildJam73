@@ -5,13 +5,14 @@ const SPEED = 5.0
 const ROTATION_FACTOR = 0.01
 const RAY_LENGTH = 1000
 
-@onready var ignored_collision_shapes : Array = $"../Truck".collison_shapes + [self]
+@onready var ignored_collision_shapes : Array = $"../Truck".collison_shapes + [self] + [$"../Ground/GroundCol"]
 @onready var neck : Node3D = $Neck
 @onready var camera : Camera3D = $Neck/Camera3D
 @onready var hands : Node3D = $Hands
 @onready var left_hand: MeshInstance3D = $Hands/Left
 @onready var right_hand: MeshInstance3D = $Hands/Right
 
+var flip_mode : bool = false
 var holding = null
 
 
@@ -26,17 +27,21 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif event.is_action_released("ui_focus_next") and holding is Pan:
+	elif event.is_action_released("flip_mode") and holding is Pan:
 		holding.toggle_hands()
 		hands.toggle_two_handed()
-		
+		flip_mode = !flip_mode
 	
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			neck.rotate_y(-event.relative.x * ROTATION_FACTOR)
 			hands.rotate_y(-event.relative.x * ROTATION_FACTOR)
-			camera.rotate_x(-event.relative.y * ROTATION_FACTOR)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+			if holding is Pan and flip_mode:
+				left_hand.rotate_x(-event.relative.y * ROTATION_FACTOR * 2)
+				left_hand.rotation.x = clamp(left_hand.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+			else:
+				camera.rotate_x(-event.relative.y * ROTATION_FACTOR)
+				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
 	
 	if event is InputEventMouseButton:
 		if event.button_mask == MOUSE_BUTTON_LEFT:
