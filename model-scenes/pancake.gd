@@ -2,6 +2,7 @@ extends RigidBody3D
 
 var inital_pos : Vector3 = self.position
 var on_pan : bool = false
+var flung : bool = false
 @onready var pan = $"../../pan"
 @onready var camera : Camera3D = $"../Camera3D"
 
@@ -27,7 +28,7 @@ func _physics_process(delta):
 	else:
 		get_parent().position += (position - inital_pos)
 		self.position = inital_pos
-		if pan.two_hands:
+		if pan.two_hands and flung:
 			if Input.is_action_pressed("ui_up"):
 				self.position.z -= speed * delta
 			elif Input.is_action_pressed("ui_down"):
@@ -56,12 +57,13 @@ func handle_body_entered(col):
 		on_pan = true
 		lock_axes(false)
 	camera.clear_current()
-	pass
+	flung = false
 
 func handle_body_exited(col):
 	if(col.get_script() != get_script() and col.name == "pan"):
 		print("exited")
 		on_pan = false
+		flung = true
 	
 		
 		if !pan.two_hands:
