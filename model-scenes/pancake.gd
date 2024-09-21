@@ -7,6 +7,8 @@ var pan
 @onready var ube : StandardMaterial3D = load("res://model-scenes/ube.tres")
 @onready var camera : Camera3D = $"../Camera3D"
 
+const END_COLLISONS = ["WindowCol", "FloorCol", "UnitsCol", "GroundCol"]
+
 func _ready():
 	# 1 = x, 2 = y, 4 = z
 	# lock_axes(true)
@@ -65,16 +67,18 @@ func handle_body_entered(col):
 	if(col.name == "pan"):
 		on_pan = true
 		lock_axes(false)
-	if col is not Pump:
+	if col is Pan or col is Pancake:
+		camera.clear_current()
+	elif col.name in END_COLLISONS:
 		get_tree().create_timer(2).timeout.connect(func(): camera.clear_current())
+		
 	flung = false
 
 func handle_body_exited(col):
-	if(col.get_script() != get_script() and col.name == "pan"):
-		print("exited")
+	if(col is Pan):
+		print("exited", col.name)
 		on_pan = false
 		flung = true
-	
 		
 		if !pan.two_hands:
 			lock_axes(true)

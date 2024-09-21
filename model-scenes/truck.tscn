@@ -638,9 +638,9 @@ transform = Transform3D(3.84505, -5.51275, 0, 1.10255, 19.2252, 0, 0, 0, 8, 4.00
 mesh = SubResource("ArrayMesh_7ra0r")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Window"]
+[node name="WindowCol" type="StaticBody3D" parent="Window"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Window/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Window/WindowCol"]
 shape = SubResource("ConcavePolygonShape3D_ccifh")
 
 [node name="Back Wheels" type="MeshInstance3D" parent="."]
