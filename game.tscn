@@ -120,7 +120,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.139
 text = "Controls:
 Left Click: Interact
 WASD: Movement
-Escape: Toggle Mouse
+M: Toggle Mouse
 
 With Pan Held:
 Shift: Toggle Control / Toss Mode

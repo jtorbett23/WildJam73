@@ -2,3 +2,4 @@
 .godot/
 /android/
 /exports
+.DS_Store

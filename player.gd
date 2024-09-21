@@ -22,7 +22,7 @@ func _ready():
 func _unhandled_input(event: InputEvent) -> void:
 	#if event is InputEventMouse:
 		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("mouse_toggle"):
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:

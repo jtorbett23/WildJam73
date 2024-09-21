@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Godot-Turbo-Library/ui/splash/SplashScreenManager.gd" id="1_f3af8"]
 [ext_resource type="PackedScene" uid="uid://obk2po6susmu" path="res://game.tscn" id="2_0hkgx"]
-[ext_resource type="Texture2D" uid="uid://bx2fwfvycx2hp" path="res://Godot-Turbo-Library/ui/splash/godot-small.png" id="2_j1x0e"]
+[ext_resource type="Texture2D" uid="uid://74j1xajytahj" path="res://Godot-Turbo-Library/ui/splash/godot-small.png" id="2_j1x0e"]
 [ext_resource type="Script" path="res://Godot-Turbo-Library/ui/splash/SplashScreen.gd" id="3_kumv3"]
-[ext_resource type="Texture2D" uid="uid://bdckqvgi1v4a" path="res://Godot-Turbo-Library/ui/splash/moshu.png" id="4_esenr"]
+[ext_resource type="Texture2D" uid="uid://ct1cwhdfai830" path="res://Godot-Turbo-Library/ui/splash/moshu.png" id="4_esenr"]
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
