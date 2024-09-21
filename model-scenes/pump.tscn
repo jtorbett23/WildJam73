@@ -197,6 +197,8 @@ shadow_mesh = SubResource("ArrayMesh_d2uie")
 size = Vector3(1.33203, 3.26984, 1.51758)
 
 [node name="Pump" type="StaticBody3D"]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_vhe2n")
 
 [node name="Pump-Cake" type="MeshInstance3D" parent="."]
