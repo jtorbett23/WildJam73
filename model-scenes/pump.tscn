@@ -1,4 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://chsxbfxg51qrx"]
+[gd_scene load_steps=13 format=4 uid="uid://chsxbfxg51qrx"]
+
+[ext_resource type="Script" path="res://model-scenes/pump.gd" id="1_vhe2n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8algo"]
 resource_name = "Pump"
@@ -191,19 +193,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d2uie")
 
-[node name="Pump" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3prwu"]
+size = Vector3(1.33203, 2.49182, 1)
+
+[node name="Pump" type="StaticBody3D"]
+script = ExtResource("1_vhe2n")
 
 [node name="Pump-Cake" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0945848, 1.28423, 1.37561)
 mesh = SubResource("ArrayMesh_ysp2e")
 skeleton = NodePath("")
 
 [node name="Pump-Ube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0496908, 1.21999, 0.177504)
+visible = false
 mesh = SubResource("ArrayMesh_76jy2")
 skeleton = NodePath("")
 
 [node name="Pump-Syrup" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0496908, 1.21999, -1.05923)
+visible = false
 mesh = SubResource("ArrayMesh_x4ipp")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166016, -0.424866, 0)
+shape = SubResource("BoxShape3D_3prwu")
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44588, 0, 0)

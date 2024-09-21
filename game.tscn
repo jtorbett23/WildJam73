@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://obk2po6susmu"]
+[gd_scene load_steps=11 format=3 uid="uid://obk2po6susmu"]
 
 [ext_resource type="PackedScene" uid="uid://dfubtwhmsakl0" path="res://model-scenes/truck.tscn" id="1_ftab3"]
 [ext_resource type="Script" path="res://player.gd" id="2_gckf7"]
 [ext_resource type="PackedScene" uid="uid://dnpf7oue3eyuv" path="res://model-scenes/pan.tscn" id="3_tll2t"]
+[ext_resource type="PackedScene" uid="uid://chsxbfxg51qrx" path="res://model-scenes/pump.tscn" id="4_ca7ti"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wm0ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -70,3 +71,6 @@ skeleton = NodePath("../Right")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.84254, 2.07632, -1.276)
 collision_layer = 4
 collision_mask = 9
+
+[node name="Pump" parent="." instance=ExtResource("4_ca7ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19538, 3.64049, -11.1877)

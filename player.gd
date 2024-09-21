@@ -12,6 +12,8 @@ const RAY_LENGTH = 1000
 @onready var left_hand: MeshInstance3D = $Hands/Left
 @onready var right_hand: MeshInstance3D = $Hands/Right
 
+var holding = null
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -42,7 +44,10 @@ func _unhandled_input(event: InputEvent) -> void:
 					collider.position = Vector3.ZERO - collider.get_node("GrabPoint").position
 					collider.rotation = Vector3.ZERO 
 					left_hand.add_child(collider)
+					holding = collider
 #					IF SCAN TO PHYSICS ON PAN, MOVE THIS CODE??? did not work cri
+				elif collider is Pump:
+					collider.interact(holding)
 		#elif event.button_mask == MOUSE_BUTTON_RIGHT:
 			#var collider = get_click_collisions()
 			#if collider:
@@ -59,7 +64,11 @@ func get_click_collisions():
 
 		var origin = camera.project_ray_origin(mousepos)
 		var end = origin + camera.project_ray_normal(mousepos) * RAY_LENGTH
-		var query = PhysicsRayQueryParameters3D.create(origin, end,4294967295, ignored_collision_shapes)
+		var ignore = ignored_collision_shapes
+		if holding != null:
+			ignore = ignore + [holding]
+			
+		var query = PhysicsRayQueryParameters3D.create(origin, end,4294967295, ignore)
 		query.collide_with_areas = true
 
 		var result = space_state.intersect_ray(query)
