@@ -52,15 +52,20 @@ func _physics_process(delta):
 func handle_body_entered(col):
 	# if(col.get_script() != get_script()):
 	print("entered")
-	on_pan = true
-	lock_axes(false)
+	if(col.name == "pan"):
+		on_pan = true
+		lock_axes(false)
 	camera.clear_current()
 	pass
 
 func handle_body_exited(col):
-	if(col.get_script() != get_script()):
+	if(col.get_script() != get_script() and col.name == "pan"):
 		print("exited")
 		on_pan = false
-		camera.make_current()
+	
+		
 		if !pan.two_hands:
 			lock_axes(true)
+		else:
+#			do not change camera if normal flip
+			camera.make_current()
