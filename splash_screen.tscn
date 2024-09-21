@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca52l0mn2ywfy"]
+
+[ext_resource type="Script" path="res://Godot-Turbo-Library/ui/splash/SplashScreenManager.gd" id="1_f3af8"]
+[ext_resource type="PackedScene" uid="uid://obk2po6susmu" path="res://game.tscn" id="2_0hkgx"]
+[ext_resource type="Texture2D" uid="uid://bx2fwfvycx2hp" path="res://Godot-Turbo-Library/ui/splash/godot-small.png" id="2_j1x0e"]
+[ext_resource type="Script" path="res://Godot-Turbo-Library/ui/splash/SplashScreen.gd" id="3_kumv3"]
+[ext_resource type="Texture2D" uid="uid://bdckqvgi1v4a" path="res://Godot-Turbo-Library/ui/splash/moshu.png" id="4_esenr"]
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f3af8")
+_move_to = ExtResource("2_0hkgx")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SplashContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Godot" type="TextureRect" parent="SplashContainer"]
+custom_minimum_size = Vector2(725, 256)
+layout_mode = 2
+texture = ExtResource("2_j1x0e")
+expand_mode = 2
+script = ExtResource("3_kumv3")
+
+[node name="TextureRect" type="TextureRect" parent="SplashContainer"]
+custom_minimum_size = Vector2(498, 497)
+layout_mode = 2
+texture = ExtResource("4_esenr")
+expand_mode = 2
+script = ExtResource("3_kumv3")
