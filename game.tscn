@@ -72,5 +72,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.842
 collision_layer = 4
 collision_mask = 9
 
+[node name="Pump-Ube" parent="." instance=ExtResource("4_ca7ti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15083, 3.57111, -9.03861)
+pump_type = 1
+
 [node name="Pump" parent="." instance=ExtResource("4_ca7ti")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19538, 3.64049, -11.1877)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19538, 3.56581, -11.1877)

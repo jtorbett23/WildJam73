@@ -194,7 +194,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d2uie")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3prwu"]
-size = Vector3(1.33203, 2.49182, 1)
+size = Vector3(1.33203, 3.26984, 1.51758)
 
 [node name="Pump" type="StaticBody3D"]
 script = ExtResource("1_vhe2n")
@@ -214,7 +214,7 @@ mesh = SubResource("ArrayMesh_x4ipp")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166016, -0.424866, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166016, -0.813873, -0.0351563)
 shape = SubResource("BoxShape3D_3prwu")
 
 [node name="SpawnPoint" type="Node3D" parent="."]

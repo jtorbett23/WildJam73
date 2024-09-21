@@ -4,6 +4,7 @@ var inital_pos : Vector3 = self.position
 var on_pan : bool = false
 var flung : bool = false
 var pan 
+@onready var ube : StandardMaterial3D = load("res://model-scenes/ube.tres")
 @onready var camera : Camera3D = $"../Camera3D"
 
 func _ready():
@@ -11,6 +12,11 @@ func _ready():
 	# lock_axes(true)
 	self.body_entered.connect(handle_body_entered)
 	self.body_exited.connect(handle_body_exited)
+
+func setup(type: Pump.type):
+	if type == Pump.type.CLASSIC:
+		var mesh: MeshInstance3D = $Cylinder
+		mesh.set_surface_override_material(0, null)
 
 func lock_axes(state: bool):
 	self.set_axis_lock(1, state)
