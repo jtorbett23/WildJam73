@@ -26,6 +26,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	elif event.is_action_released("ui_focus_next") and holding is Pan:
+		holding.toggle_hands()
+		hands.toggle_two_handed()
+		
 	
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
@@ -39,7 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var collider = get_click_collisions()
 			if collider != null:
 				print(collider)
-				if collider.has_node("GrabPoint"):
+				if collider is Pan:
 					collider.get_parent().remove_child(collider)
 					collider.position = Vector3.ZERO - collider.get_node("GrabPoint").position
 					collider.rotation = Vector3.ZERO 

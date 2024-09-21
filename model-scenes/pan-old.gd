@@ -1,4 +1,4 @@
-class_name Pan extends Node3D
+extends Node3D
 
 @onready var pancake_path : String = "pancake.tscn"
 @onready var label : Label3D = $'../Camera3D/Label3D'

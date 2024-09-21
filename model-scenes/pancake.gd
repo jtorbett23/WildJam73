@@ -1,4 +1,4 @@
-extends RigidBody3D
+class_name Pancake extends RigidBody3D
 
 var inital_pos : Vector3 = self.position
 var on_pan : bool = false

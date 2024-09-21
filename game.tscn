@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://obk2po6susmu"]
+[gd_scene load_steps=12 format=3 uid="uid://obk2po6susmu"]
 
 [ext_resource type="PackedScene" uid="uid://dfubtwhmsakl0" path="res://model-scenes/truck.tscn" id="1_ftab3"]
 [ext_resource type="Script" path="res://player.gd" id="2_gckf7"]
 [ext_resource type="PackedScene" uid="uid://dnpf7oue3eyuv" path="res://model-scenes/pan.tscn" id="3_tll2t"]
+[ext_resource type="Script" path="res://hands.gd" id="3_ue44p"]
 [ext_resource type="PackedScene" uid="uid://chsxbfxg51qrx" path="res://model-scenes/pump.tscn" id="4_ca7ti"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wm0ab"]
@@ -54,12 +55,13 @@ shape = SubResource("CapsuleShape3D_ki7gx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21941, -0.187073)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.073544, 0, 0)
 
 [node name="Hands" type="Node3D" parent="Player"]
+script = ExtResource("3_ue44p")
 
 [node name="Right" type="MeshInstance3D" parent="Player/Hands"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825704, 0.484065, -1.4202)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713, 0.484, -0.989)
 mesh = SubResource("SphereMesh_t1h14")
 
 [node name="Left" type="MeshInstance3D" parent="Player/Hands"]
