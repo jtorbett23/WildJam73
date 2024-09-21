@@ -1,4 +1,6 @@
-[gd_scene load_steps=38 format=4 uid="uid://dfubtwhmsakl0"]
+[gd_scene load_steps=39 format=4 uid="uid://dfubtwhmsakl0"]
+
+[ext_resource type="Script" path="res://model-scenes/truck.gd" id="1_8jkd6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcfdp"]
 resource_name = "Metal"
@@ -537,9 +539,11 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eubp0")
 
 [node name="Truck" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_8jkd6")
 
 [node name="Units" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.1, 0, 0, 0, 0.95, 0, 0, 0, 0.9875, -0.9, 1, -0.2)
+transform = Transform3D(0.65, 0, 0, 0, 0.95, 0, 0, 0, 0.988, -1.33009, 1, -0.2)
 mesh = SubResource("ArrayMesh_dunji")
 skeleton = NodePath("")
 
@@ -594,7 +598,7 @@ mesh = SubResource("ArrayMesh_203et")
 skeleton = NodePath("")
 
 [node name="Front Panel" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 0, -3, -4, 0, 0, 0, 0.2, 0, 1, 4, 1)
+transform = Transform3D(7.64274e-15, -8.74228e-09, -3, -4, -8.74228e-09, 0, -1.74846e-07, 0.2, -1.31134e-07, 1, 4, 1)
 mesh = SubResource("ArrayMesh_mxmxe")
 skeleton = NodePath("")
 
@@ -611,11 +615,10 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Back Panel"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Back Panel/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_wbody")
 
 [node name="Roof" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.9, 0, 0, 0, -18.7939, 0.337745, 0, -6.8404, -0.927946, 0.997731, 8.00307, 0.774654)
+transform = Transform3D(2.9, 0, 0, 0, -18.7939, 0.337744, 0, -6.8404, -0.927946, 0.997731, 8.00307, 0.774654)
 mesh = SubResource("ArrayMesh_4s1eh")
 skeleton = NodePath("")
 
