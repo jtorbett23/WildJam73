@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="WildJam73"
-run/main_scene="res://game.tscn"
+run/main_scene="res://splash_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -55,7 +55,3 @@ flip_mode={
 3d_physics/layer_3="Pan"
 3d_physics/layer_4="Pancake"
 3d_physics/layer_5="Pump"
-
-[physics]
-
-3d/physics_engine="JoltPhysics3D"

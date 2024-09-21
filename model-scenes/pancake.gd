@@ -5,6 +5,7 @@ var on_pan : bool = false
 var flung : bool = false
 var thrown : bool = false
 var pan 
+var is_falling: bool = false
 @onready var ube : StandardMaterial3D = load("res://model-scenes/ube.tres")
 @onready var camera : Camera3D = $"../Camera3D"
 
@@ -26,33 +27,37 @@ func lock_axes(state: bool):
 	self.set_axis_lock(4,state)
 
 var pan_offset = 0.2
-var speed = 10
+var speed = 50
 
 func move_to_pan():
 	self.global_position.x = clamp(self.global_position.x, pan.global_position.x - pan_offset,  pan.global_position.x + pan_offset)
 	self.global_position.z = clamp(self.global_position.x,  pan.global_position.z - pan_offset,  pan.global_position.z + pan_offset)
 
 func _physics_process(delta):
+	if is_falling:
+		print(linear_velocity)
 	if self.global_position.y > 5:
 		thrown = true
+	#if self.linear_velocity.y < 0 and !is_falling and thrown:
+		#is_falling = true	
+	
 	if pan != null:
 		if on_pan and !pan.two_hands:
-			# get_parent().position = Vector3.ZERO
-			pass
 			move_to_pan()
 		else:
 			get_parent().position += (position - inital_pos)
 			self.position = inital_pos
 			if pan.two_hands and flung:
 				if Input.is_action_pressed("up"):
-					self.position.z -= speed * delta
-				elif Input.is_action_pressed("down"):
-					self.position.z += speed * delta
-				elif Input.is_action_pressed("right"):
-					self.position.x += speed * delta
-				elif Input.is_action_pressed("left"):
-					self.position.x -= speed * delta
-
+					self.linear_velocity.z -= speed * delta
+				if Input.is_action_pressed("down"):
+					self.linear_velocity.z += speed * delta
+				if Input.is_action_pressed("right"):
+					self.linear_velocity.x += speed * delta
+				if Input.is_action_pressed("left"):
+					self.linear_velocity.x -= speed * delta
+		
+		linear_velocity.y = clamp(linear_velocity.y, -20, 100)
 
 		
 	if(self.position.y < -5 or get_parent().position.y <= -5):
@@ -71,7 +76,12 @@ func handle_body_entered(col):
 	if(col.name == "pan"):
 		on_pan = true
 		lock_axes(false)
-	if col is Pan or col is Pancake:
+	if col.name == "Plate":
+		self.linear_velocity = Vector3.ZERO
+		get_tree().create_timer(2).timeout.connect(func(): 
+			camera.clear_current()
+			)
+	elif col is Pan or col is Pancake:
 		camera.clear_current()
 	elif col.name in END_COLLISONS:
 		get_tree().create_timer(2).timeout.connect(func(): 
@@ -83,12 +93,14 @@ func handle_body_entered(col):
 			camera.clear_current()
 			get_parent().queue_free()
 			)
+
+		
 		
 	flung = false
 
 func handle_body_exited(col):
 	if(col is Pan):
-		print("exited", col.name)
+		#print("exited", col.name)
 		on_pan = false
 		flung = true
 		

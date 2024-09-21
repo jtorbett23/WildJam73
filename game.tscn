@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://obk2po6susmu"]
+[gd_scene load_steps=17 format=3 uid="uid://obk2po6susmu"]
 
 [ext_resource type="PackedScene" uid="uid://dfubtwhmsakl0" path="res://model-scenes/truck.tscn" id="1_ftab3"]
 [ext_resource type="Material" uid="uid://b1tg11ma7gn64" path="res://skyshader.tres" id="2_0baud"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dnpf7oue3eyuv" path="res://model-scenes/pan.tscn" id="3_tll2t"]
 [ext_resource type="Script" path="res://hands.gd" id="3_ue44p"]
 [ext_resource type="PackedScene" uid="uid://chsxbfxg51qrx" path="res://model-scenes/pump.tscn" id="4_ca7ti"]
+[ext_resource type="PackedScene" uid="uid://y3robrti8ieb" path="res://model-scenes/bench.tscn" id="7_433uf"]
+[ext_resource type="Texture2D" uid="uid://bvf2kedex1hom" path="res://assets/Psycakes.png" id="8_02fpv"]
 
 [sub_resource type="Sky" id="Sky_8tfne"]
 sky_material = ExtResource("2_0baud")
@@ -28,7 +30,7 @@ height = 0.45
 albedo_color = Color(0.976471, 0.976471, 0.976471, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i1bxv"]
-size = Vector2(200, 200)
+size = Vector2(75, 75)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o75uu"]
 data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
@@ -38,7 +40,7 @@ data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100,
 [node name="Truck" parent="." instance=ExtResource("1_ftab3")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 182, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -94,3 +96,45 @@ mesh = SubResource("PlaneMesh_i1bxv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/GroundCol"]
 shape = SubResource("ConcavePolygonShape3D_o75uu")
+
+[node name="Benches" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+
+[node name="1" parent="Benches" instance=ExtResource("7_433uf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 24.3981, -0.052052, -19.8987)
+
+[node name="2" parent="Benches" instance=ExtResource("7_433uf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7, -0.052052, 24.1622)
+
+[node name="3" parent="Benches" instance=ExtResource("7_433uf")]
+transform = Transform3D(1.23531, 0, -1.5729, 0, 2, 0, 1.5729, 0, 1.23531, -18.2457, -0.052052, -16.7458)
+
+[node name="4" parent="Benches" instance=ExtResource("7_433uf")]
+transform = Transform3D(1.32137, 0, -1.50133, 0, 2, 0, 1.50133, 0, 1.32137, -18.422, -0.052052, 13.3227)
+
+[node name="5" parent="Benches" instance=ExtResource("7_433uf")]
+transform = Transform3D(1.58221, 0, 1.22336, 0, 2, 0, -1.22336, 0, 1.58221, 24.1261, -0.052052, 13.1622)
+
+[node name="Controls" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.13971, 4.81851, -3.72654)
+text = "Controls:
+Left Click: Interact
+WASD: Movement
+Escape: Toggle Mouse
+
+With Pan Held:
+Shift: Toggle Control / Toss Mode
+Vertical Mouse: To Toss in Toss Mode
+
+Pancake in Air:
+WASD: To control fall"
+
+[node name="Instructions" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.9561, 4.46013, -7.97129)
+text = "It's your first day at PsyCakes. 
+Try getting towers of pancakes to the customers.
+ (No win condition just play around until you're happy :) )"
+
+[node name="MeshInstance3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -3.97683, 5.661, -6.96508)
+texture = ExtResource("8_02fpv")
