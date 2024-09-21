@@ -1,23 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://obk2po6susmu"]
+[gd_scene load_steps=14 format=3 uid="uid://obk2po6susmu"]
 
 [ext_resource type="PackedScene" uid="uid://dfubtwhmsakl0" path="res://model-scenes/truck.tscn" id="1_ftab3"]
+[ext_resource type="Material" uid="uid://b1tg11ma7gn64" path="res://skyshader.tres" id="2_0baud"]
 [ext_resource type="Script" path="res://player.gd" id="2_gckf7"]
 [ext_resource type="PackedScene" uid="uid://dnpf7oue3eyuv" path="res://model-scenes/pan.tscn" id="3_tll2t"]
 [ext_resource type="Script" path="res://hands.gd" id="3_ue44p"]
 [ext_resource type="PackedScene" uid="uid://chsxbfxg51qrx" path="res://model-scenes/pump.tscn" id="4_ca7ti"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wm0ab"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
 [sub_resource type="Sky" id="Sky_8tfne"]
-sky_material = SubResource("ProceduralSkyMaterial_wm0ab")
+sky_material = ExtResource("2_0baud")
 
 [sub_resource type="Environment" id="Environment_pdb4u"]
 background_mode = 2
 sky = SubResource("Sky_8tfne")
-tonemap_mode = 2
-glow_enabled = true
+fog_sky_affect = 0.685
+fog_depth_curve = 1097.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v3hny"]
 
@@ -27,8 +24,11 @@ glow_enabled = true
 radius = 0.2
 height = 0.45
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwgt4"]
+albedo_color = Color(0.976471, 0.976471, 0.976471, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_i1bxv"]
-size = Vector2(100, 100)
+size = Vector2(200, 200)
 
 [node name="Game" type="Node3D"]
 
@@ -84,6 +84,7 @@ pump_type = 1
 [node name="Pump" parent="." instance=ExtResource("4_ca7ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19538, 3.56581, -11.1877)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.36306, 0)
+material_override = SubResource("StandardMaterial3D_vwgt4")
 mesh = SubResource("PlaneMesh_i1bxv")

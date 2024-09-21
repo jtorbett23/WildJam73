@@ -65,7 +65,7 @@ func handle_body_entered(col):
 	if(col.name == "pan"):
 		on_pan = true
 		lock_axes(false)
-	camera.clear_current()
+	get_tree().create_timer(2).timeout.connect(func(): camera.clear_current())
 	flung = false
 
 func handle_body_exited(col):
