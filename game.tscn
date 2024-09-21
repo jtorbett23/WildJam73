@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://obk2po6susmu"]
+[gd_scene load_steps=13 format=3 uid="uid://obk2po6susmu"]
 
 [ext_resource type="PackedScene" uid="uid://dfubtwhmsakl0" path="res://model-scenes/truck.tscn" id="1_ftab3"]
 [ext_resource type="Script" path="res://player.gd" id="2_gckf7"]
@@ -26,6 +26,9 @@ glow_enabled = true
 [sub_resource type="SphereMesh" id="SphereMesh_t1h14"]
 radius = 0.2
 height = 0.45
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i1bxv"]
+size = Vector2(100, 100)
 
 [node name="Game" type="Node3D"]
 
@@ -80,3 +83,7 @@ pump_type = 1
 
 [node name="Pump" parent="." instance=ExtResource("4_ca7ti")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.19538, 3.56581, -11.1877)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.36306, 0)
+mesh = SubResource("PlaneMesh_i1bxv")

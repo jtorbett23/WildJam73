@@ -59,7 +59,9 @@ func _physics_process(delta):
 
 func handle_body_entered(col):
 	# if(col.get_script() != get_script()):
-	print("entered")
+	print("entered", col.name)
+	if(col.name == "FloorCol" or col.name == "UnitsCol"):
+		get_tree().create_timer(3).timeout.connect(func(): queue_free())
 	if(col.name == "pan"):
 		on_pan = true
 		lock_axes(false)

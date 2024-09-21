@@ -553,9 +553,9 @@ transform = Transform3D(0.65, 0, 0, 0, 0.95, 0, 0, 0, 0.988, -1.33009, 1, -0.2)
 mesh = SubResource("ArrayMesh_dunji")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Units"]
+[node name="UnitsCol" type="StaticBody3D" parent="Units"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Units/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Units/UnitsCol"]
 shape = SubResource("ConcavePolygonShape3D_yxats")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
@@ -563,9 +563,9 @@ transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 mesh = SubResource("ArrayMesh_2u5x1")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="FloorCol" type="StaticBody3D" parent="Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/FloorCol"]
 shape = SubResource("ConcavePolygonShape3D_sjia3")
 
 [node name="Window Wall" type="MeshInstance3D" parent="."]
