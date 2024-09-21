@@ -13,7 +13,7 @@ func _input(event: InputEvent) -> void:
 
 func toggle_hands():
 	two_hands = !two_hands
-	print("Two Hands is ", two_hands)
+	# print("Two Hands is ", two_hands)
 	#if(label.text == "1"):
 		#label.text = "2"
 		#two_hands = true

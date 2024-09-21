@@ -34,8 +34,8 @@ func move_to_pan():
 	self.global_position.z = clamp(self.global_position.x,  pan.global_position.z - pan_offset,  pan.global_position.z + pan_offset)
 
 func _physics_process(delta):
-	if is_falling:
-		print(linear_velocity)
+	# if is_falling:
+	# 	print(linear_velocity)
 	if self.global_position.y > 5:
 		thrown = true
 	#if self.linear_velocity.y < 0 and !is_falling and thrown:
@@ -72,7 +72,7 @@ func _physics_process(delta):
 
 func handle_body_entered(col):
 	# if(col.get_script() != get_script()):
-	print("entered", col.name)
+	# print("entered", col.name)
 	if(col.name == "pan"):
 		on_pan = true
 		lock_axes(false)

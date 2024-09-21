@@ -47,7 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.button_mask == MOUSE_BUTTON_LEFT:
 			var collider = get_click_collisions()
 			if collider != null:
-				print(collider)
+				# print(collider)
 				if collider is Pan:
 					collider.get_parent().remove_child(collider)
 					collider.position = Vector3.ZERO - collider.get_node("GrabPoint").position
